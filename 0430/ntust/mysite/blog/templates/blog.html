@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog></title>
+</head>
+<body>
+	<h1><font color="brown">My Blog</font></h1>
+	<div align="center"><a href="/blog/new"><button><h2>發表新留言</h2></button></a></div><hr3>
+    <div align="center"><h3><font size=5><div style="margin: 3px; border:2px blue solid;width: 200px;">這是留言板 </div><font size=5></div><h3>
+    <br><br>
+	{% for post in post_list %}
+		<div align="right">
+			<a href="/blog/edit?q={{ post.pk }}"><button>編輯</button></a>
+			<form action="" method="post">
+				{% csrf_token %}
+				<input type="hidden" name="pk" value="{{ post.pk }}">
+				<input type="submit" value="刪除">
+			</form>
+		</div>
+		 <table border="1">
+		<h3>標題:{{ post.title }}</h3>
+		<h4>內容:{{ post.content }}</h4><hr>
+	{% endfor %}
+    
+</body>
+</html>

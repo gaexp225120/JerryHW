@@ -1,0 +1,11 @@
+<h1 class="text-center">個人網頁</h1>
+<div class="container-fluid">
+{% for r in person.all %}
+<h2>{{r.school_id}}</h2>
+
+<p>我叫{{r.name}}</p>
+<p>生日：{{r.birth}}</p>
+<p>性別：{% if r.is_boy %}男{% else %}女{% endif %}生</p>
+
+{% endfor %}
+		
